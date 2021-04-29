@@ -40,12 +40,13 @@ def MaxPct95(application):
 
     result = dfclient.query(
         f''' SELECT max("pct90.0") FROM "jmeter" WHERE time >= {unix_startRowTime}ms and time <= {unix_endRowTime}ms ''', database=dbname)
-    return result
+    return result['jmeter']
 
 
 # In[5]:
 # create and save file
-maxPct95_result = MaxPct95('rambler_session')
+maxPct95_result = str(MaxPct95('rambler_session'))
+print(maxPct95_result)
 line = f'Max 95 percentile for the test = {maxPct95_result}'
 filename = datetime.datetime.now().strftime("%d.%m.%Y-%H:%M:%S")
 file = open(f'artifact_{filename}.txt', 'w')
