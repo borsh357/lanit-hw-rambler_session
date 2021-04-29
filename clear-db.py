@@ -21,12 +21,12 @@ client.create_database(dbname)
 # In[4]:
 # delete old metrics from influx
 dfclient.query(
-    f''' DELETE FROM "jmeter" WHERE "application" = 'rambler_session' ''', database=dbname)
+    f'DELETE FROM "jmeter" WHERE "application" = "rambler_session" ', database=dbname)
 
 # In[5]:
 # check result
 
 q = dfclient.query(
-    f''' SELECT * FROM "jmeter" WHERE "application" = 'rambler_session' ''', database=dbname)
+    f'SELECT * FROM "jmeter" WHERE "application" = "rambler_session"', database=dbname)
 if (not q):
     print('OLD METRICS HAS BEEN DELETED FROM INFLUX!')
