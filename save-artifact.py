@@ -47,6 +47,6 @@ def MaxPct95(application):
 # create and save file
 maxPct95_result = MaxPct95('rambler_session')
 line = f'Max 95 percentile for the test = {maxPct95_result}'
-filename = datetime()
+filename = datetime.datetime.now().strftime("%d.%m.%Y-%H:%M:%S")
 file = open(f'artifact_{filename}.txt', 'w')
 file.write(line)
