@@ -5,6 +5,7 @@
 # imports
 from influxdb import InfluxDBClient
 from influxdb import DataFrameClient
+import datetime
 import pandas as pd
 
 # In[2]:
@@ -46,5 +47,6 @@ def MaxPct95(application):
 # create and save file
 maxPct95_result = MaxPct95('rambler_session')
 line = f'Max 95 percentile for the test = {maxPct95_result}'
-file = open('artifact.txt', 'w')
+filename = datetime()
+file = open(f'artifact_{filename}.txt', 'w')
 file.write(line)
